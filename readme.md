@@ -33,12 +33,12 @@ nota: solo utilizar los test de unidad.
 
 ## DB
 * copiar archivo .env.example con el nombre .env
-* agregar las credenciales de tu DB
 * Crear una DB con el nombre "talledev"  
-  
+  </br>
   DB_DATABASE=talledev </br>
   DB_USERNAME=flexio  </br>
   DB_PASSWORD=Pensa23. </br>
-  </br> 
+  </br>
+* agregar las credenciales de tu DB
 * correr migraciones <strong> php artisan migrate </strong>
  
