@@ -21,7 +21,7 @@
                     <td v-text="propuesta.nombre"></td>
                     <td v-text="propuesta.apellido"></td>
                     <td v-text="propuesta.edad"></td>
-                    <td v-text="propuesta.sueldo"></td>
+                    <td v-text="propuesta.saldo"></td>
                     <td v-text="propuesta.sexo"></td>
                     <td v-text="propuesta.cantidad_prestamo"></td>
                     <td v-text="propuesta.debe_factura"></td>

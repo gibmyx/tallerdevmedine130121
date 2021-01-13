@@ -31,12 +31,12 @@
                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
                         <vue-numeric
                             class="form-control"
-                            name="sueldo"
+                            name="saldo"
                             currency=""
-                            v-model="sueldo"
+                            v-model="saldo"
                         ></vue-numeric>
                     </div>
-                    <label class="mt-2" style="color: red" v-show="!$v.sueldo.required && submitStatus">El sueldo es
+                    <label class="mt-2" style="color: red" v-show="!$v.saldo.required && submitStatus">El sueldo es
                         requerido </label>
                 </div>
             </div>
@@ -87,7 +87,7 @@ export default {
           nombre: '',
           apellido: '',
           edad: '',
-          sueldo: 0,
+          saldo: 0,
           cantidad_prestamo: 0,
           debe_factura: 'no',
           submitStatus: false,
@@ -109,7 +109,7 @@ export default {
                 ...{nombre: this.nombre},
                 ...{apellido: this.apellido},
                 ...{edad: this.edad},
-                ...{sueldo: this.sueldo},
+                ...{saldo: this.saldo},
                 ...{cantidad_prestamo: this.cantidad_prestamo},
                 ...{debe_factura: this.debe_factura}
             }
@@ -144,7 +144,7 @@ export default {
         edad: {
             required
         },
-        sueldo: {
+        saldo: {
             required
         },
         cantidad_prestamo: {

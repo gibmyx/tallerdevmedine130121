@@ -24,6 +24,7 @@ final class SaveProposal
     public function saveProposal(): void
     {
         $params = $this->request->input();
-        $propuesta = Propuesta::create($params);
+        $params['param']['sexo'] = 'Masculino';
+        $propuesta = Propuesta::create($params['param']);
     }
 }
