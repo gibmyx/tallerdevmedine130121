@@ -30,6 +30,7 @@ nota: solo utilizar los test de unidad.
 * composer install
 * npm install
 * git checkout -b "tu-nombre"
+* npm run dev (compilar codigo JS/Vue)
 
 ## DB
 * copiar archivo .env.example con el nombre .env
