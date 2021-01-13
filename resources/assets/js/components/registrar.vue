@@ -74,7 +74,6 @@
         </form>
         <br>
         <br>
-        <pre>{{$v}}</pre>
     </div>
 </template>
 
