@@ -26,6 +26,17 @@
                 </div>
 
                 <div class="col-3">
+                    <label class="form-label">Sexo <span style="color: red">*</span></label>
+<!--                    <input type="number" class="form-control" max="80" v-model="sexo">-->
+                    <select  class="form-control" name="sexo"  v-model="sexo">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                    </select>
+                    <label class="mt-2" style="color: red" v-show="!$v.sexo.required && submitStatus">El sexo es
+                        requerido </label>
+                </div>
+
+                <div class="col-3">
                     <label class="form-label">Sueldo <span style="color: red">*</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
@@ -87,6 +98,7 @@ export default {
           nombre: '',
           apellido: '',
           edad: '',
+          sexo: '',
           sueldo: 0,
           cantidad_prestamo: 0,
           debe_factura: 'no',
@@ -111,7 +123,8 @@ export default {
                 ...{edad: this.edad},
                 ...{sueldo: this.sueldo},
                 ...{cantidad_prestamo: this.cantidad_prestamo},
-                ...{debe_factura: this.debe_factura}
+                ...{debe_factura: this.debe_factura},
+                ...{sexo: this.sexo}
             }
             axios.post("/save_propuesta", {param}).then((respose) => {
                console.log(respose);
@@ -142,6 +155,9 @@ export default {
             required
         },
         edad: {
+            required
+        },
+        sexo: {
             required
         },
         sueldo: {

@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Propuesta;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use NM\Daniel\PropuestaCreator;
 
 class PropuestaController extends Controller
 {
     public function save_propuesta(Request $request): JsonResponse
     {
-        return response()->json(['mensaje' => "guardado"]);
+        try{
+            $propuestaCreator = new PropuestaCreator($request);
+            if ($propuestaCreator->__invoke())
+                $response = 'guardado';
+        }catch(\InvalidArgumentException $e) {
+            $response   =   $e->getMessage();
+        }
+
+        return response()->json(['mensaje' => $response]);
     }
 
     public function get_propuestas(Request $request): JsonResponse

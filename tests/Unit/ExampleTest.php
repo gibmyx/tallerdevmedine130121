@@ -26,6 +26,7 @@ class ExampleTest extends TestCase
             "debe_factura" => "no",
             "edad" => "24",
             "sueldo" => 500,
+            "sexo" => "Hombre"
         ])->assertSee('{"mensaje":"guardado"}' );
     }
 }
