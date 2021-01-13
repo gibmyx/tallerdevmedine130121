@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace App\src\Propuesta\Application;
 
-use App\Propuesta;
+
+use App\src\Propuesta\Domain\Propuesta;
 use Illuminate\Http\Request;
 
 final class SaveProposal
