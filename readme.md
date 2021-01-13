@@ -9,7 +9,8 @@
 
 ## Taller Dev Medine 13/01/2021 "TDD"
 
-se solicitar crear un sistema que registre las personas que quieren solicitar un prestamo para la compra de una vivienda, teniendo en cuenta los siguientes requerimientos:
+se solicitar crear un sistema que registre las personas que quieren solicitar
+un prestamo para la compra de una vivienda, teniendo en cuenta los siguientes requerimientos:
 
 * no permitir personas mayor de 50 años.
 * no permitir personas menor de 20 años (mujer).
