@@ -30,14 +30,15 @@ nota: solo utilizar los test de unidad.
 * composer install
 * npm install
 * git checkout -b "tu-nombre"
+* npm run dev (compilar codigo JS/Vue)
 
 ## DB
 * copiar archivo .env.example con el nombre .env
 * Crear una DB con el nombre "talledev"  
   </br>
   DB_DATABASE=talledev </br>
-  DB_USERNAME=flexio  </br>
-  DB_PASSWORD=Pensa23. </br>
+  DB_USERNAME=  </br>
+  DB_PASSWORD= </br>
   </br>
 * agregar las credenciales de tu DB
 * correr migraciones <strong> php artisan migrate </strong>
