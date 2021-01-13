@@ -6,24 +6,26 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Taller\Propuesta\Application\PropuestaCreator;
 use Taller\Propuesta\Application\PropuestaRequest;
+use Taller\Propuesta\Domain\PropuestaRepository;
+use Taller\Propuesta\Infrastructure\PropuestaEloquentRepository;
 
 class PropuestaController extends Controller
 {
     public function save_propuesta(Request $request): JsonResponse
     {
         try {
-            $creator = new PropuestaCreator();
+            $creator = new PropuestaCreator(new PropuestaEloquentRepository);
             ($creator)(new PropuestaRequest(
-                $request->get('nombre'),
-                $request->get('apellido'),
-                $request->get('cantidad_prestamo'),
-                $request->get('debe_factura'),
-                $request->get('edad'),
-                $request->get('sueldo')
+                $request->input('param.nombre'),
+                $request->input('param.apellido'),
+                $request->input('param.cantidad_prestamo'),
+                $request->input('param.debe_factura'),
+                $request->input('param.edad'),
+                $request->input('param.sueldo')
             ));
             return response()->json(['mensaje' => "guardado"]);
         } catch (\Exception $e) {
-            return response()->json(['mensaje' => "error"], JsonResponse::HTTP_BAD_REQUEST);
+            return response()->json(['mensaje' => $e->getMessage()], JsonResponse::HTTP_BAD_REQUEST);
         }
     }
 

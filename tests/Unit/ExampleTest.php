@@ -19,13 +19,15 @@ class ExampleTest extends TestCase
 
     public function testIsCreatePropuesta()
     {
-        $this->post("/save_propuesta", [
-            "nombre" => "Gibmyx",
-            "apellido" => "Gomez",
-            "cantidad_prestamo" => 20000,
-            "debe_factura" => "no",
-            "edad" => "24",
-            "sueldo" => 500,
+        $this->postJson("/save_propuesta", [
+            "param" => [
+                "nombre" => "Gibmyx",
+                "apellido" => "Gomez",
+                "cantidad_prestamo" => 20000,
+                "debe_factura" => "no",
+                "edad" => "24",
+                "sueldo" => 500,
+            ]
         ])
             ->assertSee('{"mensaje":"guardado"}');
     }
