@@ -20,12 +20,23 @@ class ExampleTest extends TestCase
     public function testIsCreatePropuesta()
     {
         $this->post("/save_propuesta", [
-            "nombre" => "Gibmyx",
-            "apellido" => "Gomez",
+            "nombre" => "José",
+            "apellido" => "Quilarque",
             "cantidad_prestamo" => 20000,
             "debe_factura" => "no",
-            "edad" => "24",
-            "sueldo" => 500,
-        ])->assertSee('{"mensaje":"guardado"}' );
+            "edad" => "25",
+            "saldo" => 600,
+            "sexo" => 'hombre'
+        ]);
+
+        $this->assertDatabaseHas('propuestas',[
+            "nombre" => 'José',
+            "apellido" => 'Quilarque',
+            "cantidad_prestamo" => 20000,
+            "debe_factura" => 'no',
+            "edad" => 25,
+            "saldo" => 600,
+            "sexo" => 'hombre'
+        ]);
     }
 }

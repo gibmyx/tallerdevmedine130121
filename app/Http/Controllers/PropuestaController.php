@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\src\Propuesta\Application\SaveProposal;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,12 @@ class PropuestaController extends Controller
 {
     public function save_propuesta(Request $request): JsonResponse
     {
-        return response()->json(['mensaje' => "guardado"]);
+        try{
+            (SaveProposal::create($request))->saveProposal();
+            return response()->json(['mensaje' => "guardado"]);
+        } catch (\Exception $e){
+            return response()->json(['mensaje' => $e->getMessage()]);
+        }
     }
 
     public function get_propuestas(Request $request): JsonResponse

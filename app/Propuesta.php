@@ -12,6 +12,13 @@ class Propuesta extends Model
 
     protected $table = "propuestas";
     protected $fillable = [
-
+        "nombre",
+        "apellido",
+        "cantidad_prestamo",
+        "debe_factura",
+        "edad",
+        "saldo",
+        "sexo",
+        "estado"
     ];
 }
