@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NM\Daniel;
+namespace PropuestaSystem\Daniel;
 
 use App\Propuesta;
 use Illuminate\Database\Capsule\Manager;

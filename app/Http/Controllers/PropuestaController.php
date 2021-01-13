@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Propuesta;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use NM\Daniel\PropuestaCreator;
+use PropuestaSystem\Daniel\PropuestaCreator;
 
 class PropuestaController extends Controller
 {

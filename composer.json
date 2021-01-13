@@ -24,7 +24,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "NM\\": "src/"
+            "PropuestaSystem\\": "src/"
         }
     },
     "autoload-dev": {
