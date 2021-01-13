@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post("/save_propuesta", "PropuestaController@save_propuesta");
+Route::get("/get_propuestas", "PropuestaController@get_propuestas");
+Route::post("/delete_propuesta", "PropuestaController@delete_propuesta");
+Route::post("/update_propuesta", "PropuestaController@update_propuesta");
 
 Route::get('/{any?}', function (){
     return view('welcome');

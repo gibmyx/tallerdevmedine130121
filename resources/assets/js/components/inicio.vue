@@ -11,28 +11,27 @@
                     <th scope="col">Sexo</th>
                     <th scope="col">Cantidad solicitada</th>
                     <th scope="col">Facturas vencidas</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>25</td>
-                    <td>$800</td>
-                    <td>hombre</td>
-                    <td>$20.000</td>
-                    <td>si</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>40</td>
-                    <td>$1500</td>
-                    <td>mujer</td>
-                    <td>$50.000</td>
-                    <td>no</td>
+                <tr v-for="propuesta in propuestas"
+                    :key="propuesta.id">
+                    <th scope="row" v-text="propuesta.id"></th>
+                    <td v-text="propuesta.nombre"></td>
+                    <td v-text="propuesta.apellido"></td>
+                    <td v-text="propuesta.edad"></td>
+                    <td v-text="propuesta.sueldo"></td>
+                    <td v-text="propuesta.sexo"></td>
+                    <td v-text="propuesta.cantidad_prestamo"></td>
+                    <td v-text="propuesta.debe_factura"></td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success" @click="updateState('aceptado')">Aceptar</button>
+                            <button type="button" class="btn btn-warning" @click="updateState('denegado')">Denegar</button>
+                            <button type="button" class="btn btn-danger" @click="DeletePropuesta(propuesta.id)">Eliminar</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -41,7 +40,38 @@
 
 <script>
 export default {
-    name: "inicio"
+    name: "inicio",
+    data () {
+        return {
+            propuestas: [],
+        }
+    },
+    mounted() {
+        this.getPropuestas();
+    },
+    methods: {
+        getPropuestas() {
+            axios.get("get_propuestas", {}).then((response) => {
+                this.propuestas = response.data;
+            }).catch((error) => {
+
+            });
+        },
+        updateState(state) {
+            axios.post("/update_propuesta", {state: state}).then((response) => {
+                this.getPropuestas();
+            }).catch((error) => {
+
+            });
+        },
+        DeletePropuesta(id) {
+            axios.post("/delete_propuesta", {id: id}).then((response) => {
+                this.getPropuestas();
+            }).catch((error) => {
+
+            });
+        },
+    }
 }
 </script>
 

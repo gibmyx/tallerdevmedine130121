@@ -7,10 +7,10 @@
             <h3>TDD</h3>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <router-link to="/" class="nav-link" href="#">Active</router-link>
+                    <router-link to="/" class="nav-link" href="#">Inicio</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/registrar" class="nav-link" href="#">Link</router-link>
+                    <router-link to="/registrar" class="nav-link" href="#">Registrar</router-link>
                 </li>
             </ul>
         </div>

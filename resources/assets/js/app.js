@@ -6,6 +6,7 @@ import router from './routes';
 import Vuelidate from 'vuelidate';
 import VueNumeric from 'vue-numeric';
 import CxltToastr from 'cxlt-vue2-toastr';
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 
 
 const toastrConfigs = {
