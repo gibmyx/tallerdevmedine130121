@@ -11,10 +11,17 @@ use Taller\Propuesta\Infrastructure\PropuestaEloquentRepository;
 
 class PropuestaController extends Controller
 {
+    private $creator;
+
+    public function __construct(PropuestaCreator $creator)
+    {
+        $this->creator = $creator;
+    }
+
     public function save_propuesta(Request $request): JsonResponse
     {
         try {
-            $creator = new PropuestaCreator(new PropuestaEloquentRepository);
+            $creator = $this->creator;
             ($creator)(new PropuestaRequest(
                 $request->input('param.nombre'),
                 $request->input('param.apellido'),
