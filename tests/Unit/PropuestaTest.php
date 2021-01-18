@@ -3,16 +3,17 @@
 namespace Tests\Unit;
 
 use App\Propuesta;
-use App\src\Propuesta\Application\Exceptions\isDoesNotOweInvoiceException;
-use App\src\Propuesta\Application\Exceptions\isLoanWithinRangeException;
+use App\src\Propuesta\Application\UserCase\GuardarPropuestaUserCase;
 use App\src\Propuesta\Application\Exceptions\isSalaryMinimunException;
-use App\src\Propuesta\Application\Exceptions\isUnderTwentyFiverYearsException;
+use App\src\Propuesta\Application\Exceptions\isLoanWithinRangeException;
 use App\src\Propuesta\Application\Exceptions\isUnderTwentyYearsExecption;
+use App\src\Propuesta\Application\Exceptions\isHigherFiftyYearsException;
+use App\src\Propuesta\Application\Exceptions\isDoesNotOweInvoiceException;
+use App\src\Propuesta\Application\Exceptions\isUnderTwentyFiverYearsException;
+use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentRepository;
+
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\src\Propuesta\Application\UserCase\GuardarPropuestaUserCase;
-use App\src\Propuesta\Application\Exceptions\isHigherFiftyYearsException;
-use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentRepository;
 
 class PropuestaTest extends TestCase
 {

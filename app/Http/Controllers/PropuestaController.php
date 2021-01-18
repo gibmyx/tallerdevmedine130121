@@ -11,7 +11,6 @@ use App\src\Propuesta\Domain\Repository\PropuestaRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use mysql_xdevapi\Exception;
 
 class PropuestaController extends Controller
 {
