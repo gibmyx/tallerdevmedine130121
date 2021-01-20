@@ -16,9 +16,10 @@ class Propuesta extends Model
         "apellido",
         "cantidad_prestamo",
         "debe_factura",
+        "edad",
+        "saldo",
         "estado",
         "edad",
-        "sexo",
-        "saldo",
+        "sexo"
     ];
 }
