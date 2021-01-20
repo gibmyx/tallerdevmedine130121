@@ -33,10 +33,10 @@
                             class="form-control"
                             name="sueldo"
                             currency=""
-                            v-model="sueldo"
+                            v-model="saldo"
                         ></vue-numeric>
                     </div>
-                    <label class="mt-2" style="color: red" v-show="!$v.sueldo.required && submitStatus">El sueldo es
+                    <label class="mt-2" style="color: red" v-show="!$v.saldo.required && submitStatus">El sueldo es
                         requerido </label>
                 </div>
             </div>
@@ -65,6 +65,16 @@
                         <option value="no">No</option>
                     </select>
                 </div>
+
+                <div class="col-3">
+                    <label class="form-label">Sexo <span style="color: red">*</span></label>
+                    <select  class="form-control" name="debe_facturas"  v-model="sexo">
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                    </select>
+                    <label class="mt-2" style="color: red" v-show="!$v.sexo.required && submitStatus">El sexo es
+                        requerido </label>
+                </div>
             </div>
             <hr class="my-4">
 
@@ -87,7 +97,8 @@ export default {
           nombre: '',
           apellido: '',
           edad: '',
-          sueldo: 0,
+          saldo: 0,
+          sexo: 0,
           cantidad_prestamo: 0,
           debe_factura: 'no',
           submitStatus: false,
@@ -109,15 +120,24 @@ export default {
                 ...{nombre: this.nombre},
                 ...{apellido: this.apellido},
                 ...{edad: this.edad},
-                ...{sueldo: this.sueldo},
+                ...{saldo: this.saldo},
+                ...{sexo: this.sexo},
                 ...{cantidad_prestamo: this.cantidad_prestamo},
                 ...{debe_factura: this.debe_factura}
             }
-            axios.post("/save_propuesta", {param}).then((respose) => {
-               console.log(respose);
+            axios.post("/save_propuesta", param).then((response) => {
+               console.log(response);
+                this.$toast.success({
+                    title: 'Error',
+                    message: response.data.message,
+                });
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error, 'there');
+                this.$toast.error({
+                    title: 'Exito',
+                    message: error.response.data.message,
+                });
             });
         },
         toast()
@@ -144,7 +164,10 @@ export default {
         edad: {
             required
         },
-        sueldo: {
+        saldo: {
+            required
+        },
+        sexo: {
             required
         },
         cantidad_prestamo: {
