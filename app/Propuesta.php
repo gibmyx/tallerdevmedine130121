@@ -18,6 +18,8 @@ class Propuesta extends Model
         "debe_factura",
         "edad",
         "saldo",
+        "estado",
+        "edad",
         "sexo"
     ];
 }

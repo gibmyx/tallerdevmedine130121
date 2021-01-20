@@ -11,6 +11,7 @@
                     <th scope="col">Sexo</th>
                     <th scope="col">Cantidad solicitada</th>
                     <th scope="col">Facturas vencidas</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
@@ -25,10 +26,11 @@
                     <td v-text="propuesta.sexo"></td>
                     <td v-text="propuesta.cantidad_prestamo"></td>
                     <td v-text="propuesta.debe_factura"></td>
+                    <td v-text="propuesta.estado"></td>
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-success" @click="updateState('aceptado')">Aceptar</button>
-                            <button type="button" class="btn btn-warning" @click="updateState('denegado')">Denegar</button>
+                            <button type="button" class="btn btn-success" @click="updateState('aceptado', propuesta.id)">Aceptar</button>
+                            <button type="button" class="btn btn-warning" @click="updateState('denegado', propuesta.id)">Denegar</button>
                             <button type="button" class="btn btn-danger" @click="DeletePropuesta(propuesta.id)">Eliminar</button>
                         </div>
                     </td>
@@ -57,8 +59,8 @@ export default {
 
             });
         },
-        updateState(state) {
-            axios.post("/update_propuesta", {state: state}).then((response) => {
+        updateState(estado, id) {
+            axios.post("/update_propuesta", {estado, id}).then((response) => {
                 this.getPropuestas();
             }).catch((error) => {
 
