@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\src\Propuesta\Domain\Repository\PropuestaRepository;
 use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentRepository;
 use Illuminate\Support\ServiceProvider;
+use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
+use Medine\Gibmyx\Infrastructure\Repository\PeliculaEloquentRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,7 +54,10 @@ class AppServiceProvider extends ServiceProvider
         //----------------------------------------------------------
 
         //----------------------Gibmyx------------------------------
-        //here
+        $this->app->bind(
+            PeliculasRepository::class,
+            PeliculaEloquentRepository::class
+        );
         //----------------------------------------------------------
 
         //----------------------Jose--------------------------------
