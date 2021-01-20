@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\src\Propuesta\Domain\Repository\PropuestaRepository;
 use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentRepository;
 use Illuminate\Support\ServiceProvider;
+use Taller\Cars\Domain\CarRepository;
+use Taller\Cars\Domain\InMemoryCarRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,7 +46,10 @@ class AppServiceProvider extends ServiceProvider
         //----------------------------------------------------------
 
         //----------------------Francisco---------------------------
-        //here
+        $this->app->bind(
+            CarRepository::class,
+            InMemoryCarRepository::class
+        );
         //----------------------------------------------------------
 
         //----------------------Gabriel-----------------------------
