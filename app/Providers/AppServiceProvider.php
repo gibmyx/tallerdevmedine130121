@@ -26,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+            \Taller\Propuesta\Domain\PropuestaRepository::class,
+            \Taller\Propuesta\Infrastructure\PropuestaEloquentRepository::class
+        );
+
+        $this->app->bind(
             PropuestaRepository::class,
             PropuestaEloquentRepository::class
         );

@@ -16,7 +16,7 @@ class PropuestaController extends Controller
 {
     private $repository;
 
-    public function __construct( PropuestaRepository $repository)
+    public function __construct(PropuestaRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -29,7 +29,7 @@ class PropuestaController extends Controller
 
         try {
             (new GuardarPropuestaUserCase($params, $this->repository))->execute();
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $error .= $e->getMessage();
         }
         $response = [
@@ -53,7 +53,7 @@ class PropuestaController extends Controller
 
         try {
             (new BorrarPropuestaUsarCase($params, $this->repository))->execute();
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $error .= $e->getMessage();
         }
         $response = [
@@ -71,7 +71,7 @@ class PropuestaController extends Controller
 
         try {
             (new ActualizarPropuestaUsarCase($params, $this->repository))->execute();
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $error .= $e->getMessage();
         }
         $response = [
@@ -90,7 +90,7 @@ class PropuestaController extends Controller
 
             Mail::to("gibmyxjobs@gmail.com")->send(new SendMailPropuesta());
 
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
 
             $error .= $e->getMessage();
 
