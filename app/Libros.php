@@ -14,4 +14,5 @@ class Libros extends Model
         'editorial',
         'fecha_publicacion'
     ];
+    protected $guarded = ['id'];
 }
