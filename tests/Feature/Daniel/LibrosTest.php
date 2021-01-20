@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Daniel;
 
-use App\Libros;
+use App\Libro;
 use Tests\TestCase;
 
 final class LibrosTest extends TestCase
@@ -22,12 +22,12 @@ final class LibrosTest extends TestCase
     public function it_should_create_a_book()
     {
         $response = $this->put('/guardar_libro', [
-            'id' => '',
-            'name' => 'Ingles 1',
+            'id' => '6',
+            'nombre' => 'Ingles 1',
             'autor' => 'pepe',
             'edicion' => 'tercera',
             'editorial' => 'casa editorial',
-            'fecha_publicacion' => date('2021/01/20')
+            'fecha_publicacion' => '2021/01/20'
         ]);
 
         $response->assertStatus(201);
