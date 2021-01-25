@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Medine\Daniel\Application\Update;
 
-use Medine\Daniel\Application\Create\LibroCreatorRequest;
-use Medine\Daniel\Domain\Libro;
 use Medine\Daniel\Domain\LibroRepository;
+use Medine\Daniel\Domain\ValueObjects\LibroId;
 
 final class LibroUpdater
 {
@@ -17,17 +16,10 @@ final class LibroUpdater
         $this->repository = $repository;
     }
 
-    public function __invoke(LibroCreatorRequest $request)
+    public function __invoke(LibroUpdaterRequest $request)
     {
-        $libro = new Libro(
-            $request->id(),
-            $request->nombre(),
-            $request->autor(),
-            $request->edicion(),
-            $request->editorial(),
-            $request->fechaPublicacion()
-        );
+        $id = new LibroId($request->id());
 
-        $this->repository->save($libro);
+        $this->repository->update($id, $request->toString());
     }
 }

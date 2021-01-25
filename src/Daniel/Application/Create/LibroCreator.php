@@ -24,7 +24,6 @@ final class LibroCreator
 
     public function __invoke(LibroCreatorRequest $request)
     {
-//        dd($request);
         $libro = new Libro(
             new LibroId($request->id()),
             new LibroNombre($request->nombre()),
