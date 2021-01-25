@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Medine\Gibmyx\Infrastructure\Repository;
 
 use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
-use Medine\Gibmyx\Infrastructure\Models\Pelicula;
+use Medine\Gibmyx\Domain\Models\Pelicula;
 
 final class PeliculaEloquentRepository implements PeliculasRepository
 {

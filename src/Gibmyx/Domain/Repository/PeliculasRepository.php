@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Medine\Gibmyx\Domain\Repository;
 
-use Medine\Gibmyx\Infrastructure\Models\Pelicula;
+use Medine\Gibmyx\Domain\Models\Pelicula;
 
 interface PeliculasRepository
 {
