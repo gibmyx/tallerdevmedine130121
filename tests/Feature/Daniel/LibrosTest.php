@@ -58,9 +58,7 @@ final class LibrosTest extends TestCase
     public function it_should_delete_an_existing_book()
     {
         $uuid = Uuid::uuid4();
-        $response = $this->post("/delete_libro", [
-            'id' => $uuid
-        ]);
+        $response = $this->delete("/delete_libro/{$uuid->toString()}");
 
         $response->assertStatus(200);
     }

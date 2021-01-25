@@ -18,6 +18,7 @@
 //----------------------Daniel------------------------------
 Route::put('/guardar_libro/{uuid}', 'LibrosPutController@__invoke');
 Route::post('/update_libro/{uuid}', 'LibrosPostController@__invoke');
+Route::delete('/delete_libro/{uuid}', 'LibrosDeleteController@__invoke');
 //----------------------------------------------------------
 
 //----------------------Francisco---------------------------

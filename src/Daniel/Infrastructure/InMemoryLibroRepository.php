@@ -20,4 +20,9 @@ final class InMemoryLibroRepository implements LibroRepository
     {
         // TODO: Implement update() method.
     }
+
+    public function delete(LibroId $id)
+    {
+        // TODO: Implement delete() method.
+    }
 }

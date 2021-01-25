@@ -12,4 +12,5 @@ interface LibroRepository
 {
     public  function save(Libro $libro);
     public function update(LibroId $id, array $params);
+    public function delete(LibroId $id);
 }
