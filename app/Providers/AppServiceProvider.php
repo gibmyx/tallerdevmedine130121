@@ -7,6 +7,8 @@ use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentReposit
 use Illuminate\Support\ServiceProvider;
 use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
 use Medine\Gibmyx\Infrastructure\Repository\PeliculaEloquentRepository;
+use Medine\Jose\Pharmacy\Domain\InMemoryMedicineRepository;
+use Medine\Jose\Pharmacy\Domain\MedicineRepository;
 use Taller\Cars\Domain\CarRepository;
 use Taller\Cars\Domain\InMemoryCarRepository;
 
@@ -66,7 +68,10 @@ class AppServiceProvider extends ServiceProvider
         //----------------------------------------------------------
 
         //----------------------Jose--------------------------------
-        //here
+        $this->app->bind(
+            MedicineRepository::class,
+            InMemoryMedicineRepository::class
+        );
         //----------------------------------------------------------
     }
 }
