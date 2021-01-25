@@ -14,7 +14,12 @@ class CreatePeliculasTable extends Migration
     public function up()
     {
         Schema::create('peliculas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id');
+            $table->string("titulo");
+            $table->string("genero");
+            $table->string("duracion");
+            $table->string("director");
+            $table->string('estreno');
             $table->timestamps();
         });
     }
