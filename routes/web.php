@@ -32,7 +32,7 @@ Route::post("/save_movie", "SaveMoviesController@__invoke");
 //----------------------------------------------------------
 
 //----------------------Jose--------------------------------
-//here
+Route::post("/save_medicine", "SaveMedicineController@__invoke");
 //----------------------------------------------------------
 
 Route::post("/save_propuesta", "PropuestaController@save_propuesta");
