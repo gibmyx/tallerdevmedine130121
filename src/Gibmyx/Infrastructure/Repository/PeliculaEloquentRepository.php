@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Medine\Gibmyx\Infrastructure\Repository;
 
 use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
-use Medine\Gibmyx\Infrastructure\Models\Pelicula;
+use Medine\Gibmyx\Domain\Models\Pelicula;
 
 final class PeliculaEloquentRepository implements PeliculasRepository
 {
@@ -21,14 +21,15 @@ final class PeliculaEloquentRepository implements PeliculasRepository
         $this->model->create($params);
     }
 
-    public function delete(int $id): void
+    public function delete(array $params): void
     {
-        $propuesta = $this->model->Find($id);
-        if(!empty($propuesta))
-            $propuesta->delete();
+        $id = (int) isset($params['id']) && !empty($params['id']) ?  $params['id'] : 0;
+        $pelicula = $this->model->find($id);
+        if(!empty($pelicula))
+            $pelicula->delete();
     }
 
-    public function Find(int $id): ?Pelicula
+    public function find(string $id): ?Pelicula
     {
         return $this->model->find($id);
     }

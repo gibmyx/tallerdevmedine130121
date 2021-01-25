@@ -31,6 +31,8 @@ Route::delete('/delete_libro/{uuid}', 'LibrosDeleteController@__invoke');
 
 //----------------------Gibmyx------------------------------
 Route::post("/save_movie", "SaveMoviesController@__invoke");
+Route::post("/update_movie", "UpdateMoviesController@__invoke");
+Route::post("/delete_movie", "DeleteMoviesController@__invoke");
 //----------------------------------------------------------
 
 //----------------------Jose--------------------------------
