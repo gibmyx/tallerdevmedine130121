@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\src\Propuesta\Domain\Repository\PropuestaRepository;
 use App\src\Propuesta\Infrastructure\EloquentRepository\PropuestaEloquentRepository;
 use Illuminate\Support\ServiceProvider;
+use Medine\Daniel\Application\Create\LibroCreator;
+use Medine\Daniel\Domain\LibroRepository;
+use Medine\Daniel\Infrastructure\InMemoryLibroRepository;
 use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
 use Medine\Gibmyx\Infrastructure\Repository\PeliculaEloquentRepository;
 use Taller\Cars\Domain\CarRepository;
@@ -44,7 +47,10 @@ class AppServiceProvider extends ServiceProvider
         //----------------------------------------------------------
 
         //----------------------Daniel------------------------------
-        //here
+        $this->app->bind(
+            LibroRepository::class,
+            InMemoryLibroRepository::class
+        );
         //----------------------------------------------------------
 
         //----------------------Francisco---------------------------
