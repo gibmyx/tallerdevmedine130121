@@ -23,12 +23,13 @@ final class PharmacyPostControllerTest extends TestCase
 
         $response->assertStatus(201);
     }
+
     /**
      * @test
      */
     public function it_should_update_a_medicine()
     {
-     $response =   $this->postJson("/save_medicine", [
+     $response =   $this->postJson("/update_medicine", [
             'id' => Uuid::uuid4(),
             'name' => 'Paracetamol',
             'brand' => 'Genven',
