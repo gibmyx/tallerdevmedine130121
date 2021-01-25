@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Daniel;
 
+use App\Libro;
+use Faker\Factory;
+use Mockery\Mock;
 use Tests\TestCase;
 use Ramsey\Uuid\Uuid;
 
@@ -32,5 +35,15 @@ final class LibrosTest extends TestCase
         ]);
 
         $response->assertStatus(201);
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_update_an_existing_book()
+    {
+        $this->mock(Libro::class, function () {
+            dd("stop");
+        });
     }
 }
