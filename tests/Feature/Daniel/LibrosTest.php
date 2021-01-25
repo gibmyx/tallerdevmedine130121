@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Daniel;
 
-use App\Libro;
 use Tests\TestCase;
+use Ramsey\Uuid\Uuid;
 
 final class LibrosTest extends TestCase
 {
@@ -16,18 +16,19 @@ final class LibrosTest extends TestCase
 //        $this->repository = $repository;
 //    }
 
+
     /**
      * @test
      */
     public function it_should_create_a_book()
     {
-        $response = $this->put('/guardar_libro', [
-            'id' => '6',
+        $uuid = Uuid::uuid4();
+        $response = $this->put("/guardar_libro/{$uuid->toString()}", [
             'nombre' => 'Ingles 1',
             'autor' => 'pepe',
             'edicion' => 'tercera',
             'editorial' => 'casa editorial',
-            'fecha_publicacion' => '2021/01/20'
+            'fecha_publicacion' => '20/01/2021'
         ]);
 
         $response->assertStatus(201);

@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Medine\Daniel\Domain;
 
+use Medine\Daniel\Domain\ValueObjects\LibroAutor;
+use Medine\Daniel\Domain\ValueObjects\LibroEdicion;
+use Medine\Daniel\Domain\ValueObjects\LibroEditorial;
+use Medine\Daniel\Domain\ValueObjects\LibroFechaPublicacion;
+use Medine\Daniel\Domain\ValueObjects\LibroId;
+use Medine\Daniel\Domain\ValueObjects\LibroNombre;
+
 final class Libro
 {
     private $id;
@@ -14,12 +21,12 @@ final class Libro
     private $fecha_publicacion;
 
     public function __construct(
-        string $id,
-        string $nombre,
-        string $autor,
-        string $edicion,
-        string $editorial,
-        string $fecha_publicacion
+        LibroId $id,
+        LibroNombre $nombre,
+        LibroAutor $autor,
+        LibroEdicion $edicion,
+        LibroEditorial $editorial,
+        LibroFechaPublicacion $fecha_publicacion
     )
     {
         $this->id                = $id;

@@ -16,11 +16,11 @@ class LibrosPutController extends Controller
         $this->creator = $creator;
     }
 
-    public function create(Request $request)
+    public function __invoke(string $id, Request $request)
     {
         $this->creator->__invoke(
             new LibroCreatorRequest(
-                    $request->input('id'),
+                    $id,
                     $request->input('nombre'),
                     $request->input('autor'),
                     $request->input('edicion'),

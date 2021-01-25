@@ -6,6 +6,12 @@ namespace Medine\Daniel\Application\Create;
 
 use Medine\Daniel\Domain\Libro;
 use Medine\Daniel\Domain\LibroRepository;
+use Medine\Daniel\Domain\ValueObjects\LibroAutor;
+use Medine\Daniel\Domain\ValueObjects\LibroEdicion;
+use Medine\Daniel\Domain\ValueObjects\LibroEditorial;
+use Medine\Daniel\Domain\ValueObjects\LibroFechaPublicacion;
+use Medine\Daniel\Domain\ValueObjects\LibroId;
+use Medine\Daniel\Domain\ValueObjects\LibroNombre;
 
 final class LibroCreator
 {
@@ -18,13 +24,14 @@ final class LibroCreator
 
     public function __invoke(LibroCreatorRequest $request)
     {
+//        dd($request);
         $libro = new Libro(
-            $request->id(),
-            $request->nombre(),
-            $request->autor(),
-            $request->edicion(),
-            $request->editorial(),
-            $request->fechaPublicacion()
+            new LibroId($request->id()),
+            new LibroNombre($request->nombre()),
+            new LibroAutor($request->autor()),
+            new LibroEdicion($request->edicion()),
+            new LibroEditorial($request->editorial()),
+            new LibroFechaPublicacion($request->fechaPublicacion())
         );
 
         $this->repository->save($libro);
