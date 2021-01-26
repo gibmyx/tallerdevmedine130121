@@ -20,6 +20,6 @@ final class LibroUpdater
     {
         $id = new LibroId($request->id());
 
-        $this->repository->update($id, $request->toString());
+        $this->repository->update($id, $request->toArray());
     }
 }
