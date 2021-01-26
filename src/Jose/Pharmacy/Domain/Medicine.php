@@ -3,6 +3,12 @@ declare(strict_types=1);
 
 namespace Medine\Jose\Pharmacy\Domain;
 
+use Medine\Jose\Pharmacy\Domain\ValueObjects\MedicineBrand;
+use Medine\Jose\Pharmacy\Domain\ValueObjects\MedicineId;
+use Medine\Jose\Pharmacy\Domain\ValueObjects\MedicineMiligrams;
+use Medine\Jose\Pharmacy\Domain\ValueObjects\MedicineName;
+use Medine\Jose\Pharmacy\Domain\ValueObjects\MedicinePrice;
+
 final class Medicine
 {
     private $id;
@@ -12,11 +18,11 @@ final class Medicine
     private $price;
 
     public function __construct(
-        string $id,
-        string $name,
-        string $brand,
-        float $miligrams,
-        float $price
+        MedicineId $id,
+        MedicineName $name,
+        MedicineBrand $brand,
+        MedicineMiligrams $miligrams,
+        MedicinePrice $price
     )
     {
         $this->id = $id;
@@ -26,27 +32,27 @@ final class Medicine
         $this->price = $price;
     }
 
-    public function id(): string
+    public function id(): MedicineId
     {
         return $this->id;
     }
 
-    public function name(): string
+    public function name(): MedicineName
     {
         return $this->name;
     }
 
-    public function brand(): string
+    public function brand(): MedicineBrand
     {
         return $this->brand;
     }
 
-    public function miligrams(): float
+    public function miligrams(): MedicineMiligrams
     {
         return $this->miligrams;
     }
 
-    public function price():float
+    public function price(): MedicinePrice
     {
         return $this->price;
     }
