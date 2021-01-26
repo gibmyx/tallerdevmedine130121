@@ -37,32 +37,32 @@ final class Libro
         $this->fecha_publicacion = $fecha_publicacion;
     }
 
-    public function id(): string
+    public function id(): LibroId
     {
         return $this->id;
     }
 
-    public function nombre(): string
+    public function nombre(): LibroNombre
     {
         return $this->nombre;
     }
 
-    public function autor(): string
+    public function autor(): LibroAutor
     {
         return $this->autor;
     }
 
-    public function edicion(): string
+    public function edicion(): LibroEdicion
     {
         return $this->edicion;
     }
 
-    public function editorial(): string
+    public function editorial(): LibroEditorial
     {
         return $this->editorial;
     }
 
-    public function fechaPublicacion(): string
+    public function fechaPublicacion(): LibroFechaPublicacion
     {
         return $this->fecha_publicacion;
     }

@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Medine\Daniel\Application\Create\LibroCreator;
 use Medine\Daniel\Domain\LibroRepository;
 use Medine\Daniel\Infrastructure\InMemoryLibroRepository;
+use Medine\Daniel\Infrastructure\MySqlLibroRepository;
 use Medine\Gibmyx\Domain\Repository\PeliculasRepository;
 use Medine\Gibmyx\Infrastructure\Repository\PeliculaEloquentRepository;
 use Taller\Cars\Domain\CarRepository;
@@ -49,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
         //----------------------Daniel------------------------------
         $this->app->bind(
             LibroRepository::class,
-            InMemoryLibroRepository::class
+            MySqlLibroRepository::class
         );
         //----------------------------------------------------------
 

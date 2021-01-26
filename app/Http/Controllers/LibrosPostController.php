@@ -21,7 +21,11 @@ class LibrosPostController extends Controller
         $this->updater->__invoke(
             new LibroUpdaterRequest(
                     $id,
-                    $request
+                    $request->input('nombre'),
+                    $request->input('autor'),
+                    $request->input('edicion'),
+                    $request->input('editorial'),
+                    $request->input('fecha_publicacion'),
                 )
         );
 

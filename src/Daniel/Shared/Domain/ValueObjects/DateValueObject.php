@@ -23,15 +23,15 @@ class DateValueObject
 
     public function setDate(string $date): string
     {
-        $explodedDate = explode('/', $date);
+        $explodedDate = explode('-', $date);
 
         if (empty($date))
             throw new EmptyArgumentException('No puede estar vacio');
 
         if (!checkdate(
             (int)$explodedDate[1],
-            (int)$explodedDate[0],
-            (int)$explodedDate[2]
+            (int)$explodedDate[2],
+            (int)$explodedDate[0]
         ))
             throw new InvalidDateException('La fecha indicada no es válida');
 
