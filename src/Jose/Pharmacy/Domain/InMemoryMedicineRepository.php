@@ -29,16 +29,13 @@ final class InMemoryMedicineRepository implements MedicineRepository
     }
     public function update(MedicineId $id, array $params)
     {
-        // TODO: Implement update() method.
+        $medicine = MedicineModel::where('uuid', $id->uuid());
+        $medicine->update($params);
     }
 
     public function delete(MedicineId $id)
     {
-        // TODO: Implement delete() method.
-    }
-
-    public function find(MedicineId $id)
-    {
-        // TODO: Implement delete() method.
+        $medicine = MedicineModel::where('uuid', $id->uuid());
+        $medicine->delete();
     }
 }

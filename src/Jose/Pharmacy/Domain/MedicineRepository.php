@@ -10,5 +10,4 @@ interface MedicineRepository
     public function save(Medicine $medicine): void;
     public function update(MedicineId $id, array $params);
     public function delete(MedicineId $id);
-    public function find(MedicineId $id);
 }
