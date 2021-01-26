@@ -37,22 +37,6 @@ final class LibrosTest extends TestCase
         $response->assertStatus(201);
     }
 
-//public function test1()
-//{
-//    $creator = new LibroCreator(new MySqlLibroRepository());
-//
-//    $creator->__invoke(
-//        new LibroCreatorRequest(
-//            Uuid::uuid4()->toString(),
-//            'pep',
-//            'luis',
-//            'quinta',
-//            'casa',
-//            '2021-01-01'
-//        )
-//    );
-//}
-
     /**
      * @test
      */
