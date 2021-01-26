@@ -29,12 +29,18 @@ final class PharmacyPostControllerTest extends TestCase
      */
     public function it_should_update_an_existing_medicine()
     {
-        $uuid = Uuid::uuid4();
-        $response = $this->post("/update_medicine/{$uuid->toString()}", [
+        $medicine = [
+            'id' => Uuid::uuid4(),
+            'name' => 'Paracetamol',
+            'brand' => 'Genven',
+            'miligrams' => '500',
+            'price' => '2.000.000'
+        ];
+        $this->postJson("/save_medicine", $medicine);
+        $response = $this->post("/update_medicine/{$medicine['id']}", [
             'name' => 'Acetaminophen',
             'miligrams' => '1000',
         ]);
-
         $response->assertStatus(200);
     }
 
@@ -43,9 +49,14 @@ final class PharmacyPostControllerTest extends TestCase
      */
     public function it_should_delete_an_existing_medicine()
     {
-        $uuid = Uuid::uuid4();
-        $response = $this->delete("/delete_medicine/{$uuid->toString()}");
-
+        $medicine = [
+            'id' => Uuid::uuid4(),
+            'name' => 'Paracetamol',
+            'brand' => 'Genven',
+            'miligrams' => '500',
+            'price' => '2.000.000'
+        ];
+        $response = $this->delete("/delete_medicine/{$medicine['id']}");
         $response->assertStatus(200);
     }
 }

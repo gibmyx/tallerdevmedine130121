@@ -21,7 +21,7 @@ final class UpdateMedicineController extends Controller
          $this->medicineUpdater->__invoke(
              new MedicineUpdaterRequest($id, $request)
          );
-         return new JsonResponse('', JsonResponse::HTTP_CREATED);
+         return new JsonResponse('', JsonResponse::HTTP_OK);
 
      }
 }

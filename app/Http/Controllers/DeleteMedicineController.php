@@ -21,6 +21,6 @@ final class DeleteMedicineController extends Controller
             $id
         );
 
-        return new JsonResponse('', JsonResponse::HTTP_CREATED);
+        return new JsonResponse('', JsonResponse::HTTP_OK);
     }
 }
