@@ -9,27 +9,69 @@ use Illuminate\Http\Request;
 final class LibroUpdaterRequest
 {
     private $id;
-    private $request;
+    private $nombre;
+    private $autor;
+    private $edicion;
+    private $editorial;
+    private $fecha_publicacion;
 
     public function __construct(
         string $id,
-        Request $request
+        ?string $nombre,
+        ?string $autor,
+        ?string $edicion,
+        ?string $editorial,
+        ?string $fecha_publicacion
     )
     {
         $this->id = $id;
-        $this->request = $request;
+        $this->nombre = $nombre;
+        $this->autor = $autor;
+        $this->edicion = $edicion;
+        $this->editorial = $editorial;
+        $this->fecha_publicacion = $fecha_publicacion;
     }
+
 
     public function id(): string
     {
         return $this->id;
     }
 
-    public function toString(): array
+    public function nombre(): ?string
     {
-        $data = $this->request->all();
+        return $this->nombre;
+    }
 
-        return array_filter($data);
+    public function autor(): ?string
+    {
+        return $this->autor;
+    }
+
+    public function edicion(): ?string
+    {
+        return $this->edicion;
+    }
+
+    public function editorial(): ?string
+    {
+        return $this->editorial;
+    }
+
+    public function fecha_publicacion(): ?string
+    {
+        return $this->fecha_publicacion;
+    }
+
+    public function toArray(): array
+    {
+        return array_filter([
+            'nombre'            => $this->nombre(),
+            'autor'             => $this->autor(),
+            'edicion'           => $this->edicion(),
+            'editorial'         => $this->editorial(),
+            'fecha_publicacion' => $this->fecha_publicacion()
+        ]);
     }
 
 }

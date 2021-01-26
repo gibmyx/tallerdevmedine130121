@@ -25,7 +25,7 @@ class UuidValueObject
     private function ensureIsValidUuid(string $uuid): void
     {
         if(!RamseyUuid::isValid($uuid)){
-            throw new \Exception(sprintf("<%s> does not allow the value <%s>", static::class, $value));
+            throw new \Exception(sprintf("<%s> does not allow the value <%s>", static::class, $uuid));
         }
     }
 

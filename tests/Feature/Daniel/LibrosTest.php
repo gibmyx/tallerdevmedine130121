@@ -6,6 +6,11 @@ namespace Tests\Feature\Daniel;
 
 use App\Libro;
 use Faker\Factory;
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Medine\Daniel\Application\Create\LibroCreator;
+use Medine\Daniel\Application\Create\LibroCreatorRequest;
+use Medine\Daniel\Infrastructure\MySqlLibroRepository;
 use Mockery\Mock;
 use Tests\TestCase;
 use Ramsey\Uuid\Uuid;
@@ -13,13 +18,7 @@ use function foo\func;
 
 final class LibrosTest extends TestCase
 {
-//    private $repository;
-//
-//    protected function setUp(LibrosRepository $repository)
-//    {
-//        $this->repository = $repository;
-//    }
-
+    use DatabaseTransactions;
 
     /**
      * @test
@@ -32,7 +31,7 @@ final class LibrosTest extends TestCase
             'autor' => 'pepe',
             'edicion' => 'tercera',
             'editorial' => 'casa editorial',
-            'fecha_publicacion' => '20/01/2021'
+            'fecha_publicacion' => '2021-01-24'
         ]);
 
         $response->assertStatus(201);
@@ -43,8 +42,8 @@ final class LibrosTest extends TestCase
      */
     public function it_should_update_an_existing_book()
     {
-        $uuid = Uuid::uuid4();
-        $response = $this->post("/update_libro/{$uuid->toString()}", [
+        $libro = factory(Libro::class)->create();
+        $response = $this->post("/update_libro/{$libro->uuid}", [
             'nombre' => 'Ingles 1',
             'edicion' => 'cuarta',
         ]);
@@ -57,8 +56,8 @@ final class LibrosTest extends TestCase
      */
     public function it_should_delete_an_existing_book()
     {
-        $uuid = Uuid::uuid4();
-        $response = $this->delete("/delete_libro/{$uuid->toString()}");
+        $libro = factory(Libro::class)->create();
+        $response = $this->delete("/delete_libro/{$libro->uuid}");
 
         $response->assertStatus(200);
     }

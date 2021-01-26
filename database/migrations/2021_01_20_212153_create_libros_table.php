@@ -14,14 +14,15 @@ class CreateLibrosTable extends Migration
     public function up()
     {
         Schema::create('libros', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('uuid');
             $table->string('nombre');
             $table->string('autor');
             $table->string('edicion');
             $table->string('editorial');
             $table->date('fecha_publicacion');
-            $table->string('lugar_publicacion');
             $table->timestamps();
+
+            $table->primary('uuid');
         });
     }
 
