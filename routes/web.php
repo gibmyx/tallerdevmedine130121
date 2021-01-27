@@ -36,7 +36,9 @@ Route::post("/delete_movie", "DeleteMoviesController@__invoke");
 //----------------------------------------------------------
 
 //----------------------Jose--------------------------------
-//here
+Route::post("/save_medicine", "SaveMedicineController@__invoke");
+Route::post("/update_medicine/{uuid}", "UpdateMedicineController@__invoke");
+Route::delete("/delete_medicine/{uuid}", "DeleteMedicineController@__invoke");
 //----------------------------------------------------------
 
 Route::post("/save_propuesta", "PropuestaController@save_propuesta");
